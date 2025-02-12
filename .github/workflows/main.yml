@@ -12,7 +12,7 @@ jobs:
           echo "TOKEN=${{ secrets.MY_PAT }}"
           echo "OWNER=${{ secrets.OWNER }}"
           echo "REPO=${{ secrets.TARGET_REPO }}"
-
+          echo "https://api.github.com/repos/$OWNER/$REPO/dispatches"
           curl \
             -X POST \
             -H "Authorization: token $TOKEN" \
