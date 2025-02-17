@@ -13,4 +13,4 @@ jobs:
           token: ${{secrets.tkn}}
           repository: kazu0523/dispatch
           event-type: echo_message
-          client-payload: '{"message": "Hello!"}'
+          client-payload: '{"message": "Hello world!"}'
