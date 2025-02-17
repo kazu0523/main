@@ -11,6 +11,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{secrets.tkn}}
-          repository: dispatch
+          repository: kazu0523/dispatch
           event-type: echo_message
           client-payload: '{"message": "Hello!"}'
