@@ -5,7 +5,7 @@ jobs:
   run-repository-dispatch:
     runs-on: ubuntu-latest
     # 1. commitメッセージにautotestを含む場合だけjobを実行する。それ以外のときは何もしない
-    if: contains(${{ github.event.head_commit.message }}, 'autify')
+    if: contains(${{ github.event.head_commit.message }}, 'autotest')
     steps:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
