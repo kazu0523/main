@@ -27,4 +27,5 @@ jobs:
   run-env:
     runs-on: ubuntu-latest
     steps:
-      - name: ${{ github.event }}
+      - name: env test 
+        run: ${{ github.event }}
