@@ -10,7 +10,7 @@ jobs:
           autotest_check: contains('${{ github.event.head_commit.message }}', 'autotest')
         uses: peter-evans/repository-dispatch@v2
         # 1. commitメッセージにautotestを含む場合だけjobを実行する。それ以外のときは何もしない
-        if: env.autotest_check == 1
+        if: ${{env.autotest_check == 1}}
         with:
           token: ${{secrets.tkn}}
           repository: kazu0523/dispatch
