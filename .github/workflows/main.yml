@@ -12,7 +12,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         # 1. commitメッセージにautotestを含む場合だけjobを実行する。それ以外のときは何もしない
-        if: autotest_check == 1
+        if: ${autotest_check} == 1
         with:
           token: ${{secrets.tkn}}
           repository: kazu0523/dispatch
@@ -23,6 +23,6 @@ jobs:
     steps:
       - name: Console output
         # 1. commitメッセージにmessageを含む場合だけjobを実行する。それ以外のときは何もしない
-        if: message_check == 0
+        if: ${message_check} == 0
         run: sleep 15s && echo ${{ github.event.head_commit.message }}
         shell: bash
