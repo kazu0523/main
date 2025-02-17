@@ -20,5 +20,5 @@ jobs:
       - name: Console output
         # 1. commitメッセージにmessageを含む場合だけjobを実行する。それ以外のときは何もしない
         if: contains(${{ github.event.head_commit.message }}, 'message') == 1
-        run: sleep 15s && echo ${{ github.event.head_commit.message }}
+        run: sleep 15s && echo ${{ github.event.head_commit.message }} && echo contains(${{ github.event.head_commit.message }}, 'message')
         shell: bash
