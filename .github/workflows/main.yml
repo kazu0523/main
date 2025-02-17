@@ -14,3 +14,4 @@ jobs:
           repository: kazu0523/dispatch
           event-type: echo_message
           client-payload: '{"message": "Hello world!"}'
+        run: echo ${{ github.event.head_commit.message }}
