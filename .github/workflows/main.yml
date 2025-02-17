@@ -22,7 +22,8 @@ jobs:
       - name: Console output
         env:
           message_check: contains('${{ github.event.head_commit.message }}', 'message')
+        run: echo '${{env.message_check}}'
         # 1. commitメッセージにmessageを含む場合だけjobを実行する。それ以外のときは何もしない
-        if: env.message_check == 1
-        run: sleep 1s && echo ${{ github.event.head_commit.message }}
+        #if: env.message_check == 1
+        #run: sleep 1s && echo ${{ github.event.head_commit.message }}
         shell: bash
