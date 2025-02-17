@@ -1,15 +1,13 @@
 name: Repository dispatch run
 on:
   push
-env:
-  autotest_check: contains(${{ github.event.head_commit.message }}, 'autotest')
-  message_check: contains(${{ github.event.head_commit.message }}, 'message')
-  
 jobs:
   run-repository-dispatch:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
+        env:
+          autotest_check: contains(${{ github.event.head_commit.message }}, 'autotest')
         uses: peter-evans/repository-dispatch@v2
         # 1. commitメッセージにautotestを含む場合だけjobを実行する。それ以外のときは何もしない
         if: ${{autotest_check}} == 1
@@ -22,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Console output
+        env:
+          message_check: contains(${{ github.event.head_commit.message }}, 'message')
         # 1. commitメッセージにmessageを含む場合だけjobを実行する。それ以外のときは何もしない
         if: ${{message_check}} == 0
         run: sleep 15s && echo ${{ github.event.head_commit.message }}
