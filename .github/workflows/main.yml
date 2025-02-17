@@ -14,6 +14,9 @@ jobs:
           repository: kazu0523/dispatch
           event-type: echo_message
           client-payload: '{"message": "Hello world!"}'
+  run-console:
+    runs-on: ubuntu-latest
+    steps:
       - name: Console output
         # 1. commitメッセージにmessageを含む場合だけjobを実行する。それ以外のときは何もしない
         if: contains(${{ github.event.head_commit.message }}, 'message')
