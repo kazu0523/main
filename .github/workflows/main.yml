@@ -10,7 +10,7 @@ jobs:
         #  autotest_check: contains('${{ github.event.head_commit.message }}', 'autotest')
         uses: peter-evans/repository-dispatch@v2
         # 1. commitメッセージにautotestを含む場合だけjobを実行する。それ以外のときは何もしない
-        if: contains('${{ github.event.head_commit.message }}', 'autotest') == 1
+        if: "contains(github.event.head_commit.message, 'autotest')"
         with:
           token: ${{secrets.tkn}}
           repository: kazu0523/dispatch
@@ -24,6 +24,6 @@ jobs:
         #  message_check: contains('${{ github.event.head_commit.message }}', 'message')
         #run: echo "${{env.message_check}}"
         # 1. commitメッセージにmessageを含む場合だけjobを実行する。それ以外のときは何もしない
-        if: contains('${{ github.event.head_commit.message }}', 'message') == 1
+        if: "contains(github.event.head_commit.message, 'message')"
         run: sleep 1s && echo ${{ github.event.head_commit.message }}
         shell: bash
