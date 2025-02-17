@@ -28,4 +28,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: env test 
-        run: ${{ github.event }}
+        run: ${{ github.sha }}
