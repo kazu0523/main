@@ -9,7 +9,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         # commitメッセージにautotestを含む場合だけjobを実行する。それ以外のときは何もしない
         # 変数を${{}}で囲ってしまうと常にTrueが返されてしまうので注意
-        if: "contains(github.event.head_commit.message, 'autotest')"
+        #if: "contains(github.event.head_commit.message, 'autotest')"
         with:
           token: ${{secrets.tkn}}
           repository: kazu0523/dispatch
