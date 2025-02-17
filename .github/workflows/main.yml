@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Repository Dispatch
         env:
-          autotest_check: contains(${{ github.event.head_commit.message }}, 'autotest')
+          autotest_check: contains('${{ github.event.head_commit.message }}', 'autotest')
         uses: peter-evans/repository-dispatch@v2
         # 1. commitメッセージにautotestを含む場合だけjobを実行する。それ以外のときは何もしない
         #if: $autotest_check == 1
@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Console output
         env:
-          message_check: contains(${{ github.event.head_commit.message }}, 'message')
+          message_check: contains('${{ github.event.head_commit.message }}', 'message')
         # 1. commitメッセージにmessageを含む場合だけjobを実行する。それ以外のときは何もしない
         run: printenv
         #if: $message_check == 0
