@@ -34,4 +34,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: process test
-        run: echo "${{ toJson(process.env)}}"
+        run: echo "${{ process.env.GITHUB_RUN_ID}}"
