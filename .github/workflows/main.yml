@@ -39,6 +39,7 @@ jobs:
         run: |
           mkdir -p test/far
           echo "Hello, Aqua!" > test/example.txt
+          echo "Hello, Panda!" > test/far/sample.txt
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
