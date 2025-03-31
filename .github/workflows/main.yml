@@ -37,10 +37,10 @@ jobs:
         uses: actions/checkout@v3
       - name: Create a Sample File
         run: |
-          mkdir -p /aaa
-          echo "Hello, Aqua!" > /aaa/example.txt
+          mkdir -p test/far
+          echo "Hello, Aqua!" > test/example.txt
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: example-artifact
-          path: /aaa/
+          path: test
