@@ -23,15 +23,23 @@ jobs:
         # 変数を${{}}で囲ってしまうと常にTrueが返されてしまうので注意
         # 最初に!をつければNOTにできる
         if: "!contains(github.event.head_commit.message, 'test message')"
-        run: sleep 10s && echo ${{ github.event.head_commit.message }}
+        run: sleep 1ｓ && echo ${{ github.event.head_commit.message }}
         shell: bash
   run-env:
     runs-on: ubuntu-latest
     steps:
       - name: env test 
         run: echo "${{ toJson(github) }}"
-  run-env2:
+  save-artifact:
     runs-on: ubuntu-latest
     steps:
-      - name: process test
-        run: echo "${{ process.env.GITHUB_RUN_ID}}"
+      - name: Setup Repository
+        uses: actions/checkout@v3
+      - name: Create a Sample File
+        run: |
+          echo "Hello, Aqua!" > example.txt
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: example-artifact
+          path: example.txt
